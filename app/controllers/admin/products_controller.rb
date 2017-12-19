@@ -19,7 +19,7 @@ class Admin::ProductsController < ApplicationController
     if @product.save
       redirect_to admin_products_path
     else
-      redirect_to :new
+      render :new
     end
   end
   def update
@@ -27,7 +27,7 @@ class Admin::ProductsController < ApplicationController
     if @product.update(product_params)
       redirect_to admin_products_path
     else
-      redirect_to :edit
+      render :edit
     end
   end
   def destroy

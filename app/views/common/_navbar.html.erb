@@ -9,7 +9,19 @@
       <a class="navbar-brand" href='/'>JDsore</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active">
+          <%=link_to('Products',products_path)%>
+        </li>
+      </ul>
       <ul class="nav navbar-nav navbar-right">
+        <li>
+          <%=link_to "#" do %>
+            cart <i class="fa fa-shopping-cart"></i>(<%=0%>)
+          <%end%>
+        </li>
+
+
         <% if !current_user %>
           <li><%=link_to('注册',new_user_registration_path)%></li>
           <li><%=link_to(content_tag(:i,'登录',class:'fa fa-sign-in'),new_user_session_path)%></li>
@@ -20,6 +32,10 @@
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
+              <%if current_user.admin?%>
+                <li><%=link_to('admin',admin_products_path)%></li>
+              <%end%>
+              <li><%=link_to('my order',"#")%></li>
               <li><%=link_to(content_tag(:i,'退出',class:'fa fa-sign-out'),destroy_user_session_path,method: :delete)%></li>
               <li><%=link_to('修改资料',edit_registration_path(:user))%></li>
             </ul>

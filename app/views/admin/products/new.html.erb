@@ -12,5 +12,8 @@
   <div class="group">
     <%=f.input :price%>
   </div>
+  <div class="group">
+    <%=f.input :product_img,as: :file%>
+  </div>
   <%=f.submit "确定",data:{disable_with:"Submitting..."}%>
 <% end %>

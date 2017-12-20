@@ -40,7 +40,7 @@ gem 'simple_form'
 gem 'font-awesome-rails'
 gem 'carrierwave'
 gem 'mini_magick'
-
+gem 'pry'
 group :production do
   gem 'pg'
 end

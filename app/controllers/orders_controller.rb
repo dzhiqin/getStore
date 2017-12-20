@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   before_action :authenticate_user! ,only:[:create]
 
   def create
+
     @order=Order.new(order_params)
     @order.user=current_user
     @order.total=current_cart.total_price
@@ -20,10 +21,25 @@ class OrdersController < ApplicationController
       render "carts/checkout"
     end
   end
+
   def show
-    binding.pry
+
     @order=Order.find_by_token(params[:id])
     @product_lists=@order.product_lists
+  end
+  def pay_with_weixin
+    @order=Order.find_by_token(params[:id])
+    @order.set_payment_with!("weixin")
+    @order.pay!
+    redirect_to order_path(@order.token),notice:"使用微信完成付款"
+
+  end
+  def pay_with_alipay
+    @order=Order.find_by_token(params[:id])
+    @order.set_payment_with!("alipay")
+    @order.pay!
+    redirect_to order_path(@order.token),notice:"使用支付宝完成付款"
+
   end
   private
   def order_params

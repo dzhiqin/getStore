@@ -5,6 +5,15 @@ class OrdersController < ApplicationController
     @order.user=current_user
     @order.total=current_cart.total_price
     if @order.save
+      current_cart.cart_items.each do |cart_item|
+        product_list=ProductList.new
+        product_list.order=@order
+        product_list.product_name=cart_item.product.title
+        product_list.product_price=cart_item.product.price
+        product_list.quantity=cart_item.quantity
+        product_list.save
+      end
+      current_cart.clean!
       redirect_to order_path(@order)
     else
       render "carts/checkout"
@@ -12,6 +21,7 @@ class OrdersController < ApplicationController
   end
   def show
     @order=Order.find(params[:id])
+    @product_lists=@order.product_lists
   end
   private
   def order_params

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style media="screen">
+.flip-container
+{
+	position:relative;
+	-webkit-perspective:1000;
+	perspective:1000;
+}
+.flip-cards
+{
+    width:200px;
+    height:291px;
+    position:relative;
+    float:left;
+    margin-left:5px;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+
+.flip-cards:hover
+{
+    transform: rotateY( 180deg );
+    -webkit-transform: rotateY(180deg);
+}
+.flip-cards div
+{
+    width:200px;
+    height:291px;
+    position:absolute;
+    border-radius:15px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+.front-card
+{
+    z-index: 2;
+    background-color: red;
+}
+
+.reverse-card
+{
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY( 180deg );
+}
+#card1
+{
+    background-color: yellow;
+}
+
+#card2
+{
+	background-color: pink;
+}
+
+#card3
+{
+	background-color: black;
+}
+
+
+		</style>
+	</head>
+	<body>
+		<div class="flip-container">
+        <div class="flip-cards">
+            <div class="front-card"></div>
+            <div class="reverse-card" id="card1"></div>
+        </div>
+        <div class="flip-cards">
+            <div class="front-card"></div>
+            <div class="reverse-card" id="card2"></div>
+        </div>
+        <div class="flip-cards">
+            <div class="front-card"></div>
+            <div class="reverse-card" id="card3"></div>
+    		</div>
+	</div>
+	</div>
+	</body>
+</html>

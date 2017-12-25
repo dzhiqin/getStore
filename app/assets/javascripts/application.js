@@ -12,7 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-
+//= require wow.min
 //= require bootstrap/alert
+//= require bootstrap/carousel
+//= require bootstrap-sprockets
 //= require bootstrap/dropdown
 //= require_tree .
+$(document).ready(function(){
+  new WOW().init();
+})

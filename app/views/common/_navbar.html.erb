@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-top" id="nav-scroll"role="navigation">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -6,18 +6,18 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href='/'>JDsore</a>
+      <a class="navbar-brand" href='/'>得到商城</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active">
-          <%=link_to('Products',products_path)%>
+        <li class="">
+          <%=link_to('知识产品',products_path)%>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
           <%=link_to carts_path do %>
-            cart <i class="fa fa-shopping-cart"></i>(<%=current_cart.products.count%>)
+            购物车 <i class="fa fa-shopping-cart"></i>(<%=current_cart.products.count%>)
           <%end%>
         </li>
 

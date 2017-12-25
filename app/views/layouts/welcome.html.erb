@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GetStore</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico">
+
+
+  </head>
+
+  <body class="wel-body">
+    <header id="wel-header-id">
+      <%= render "common/navbar"%>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>和你一起，终身学习</h1>
+            <p>得到出品</p>
+          </div>
+          <div class="col-md-12">
+            <section id="section-arrow" class="demo arrow"><center>
+              <a href="#" class="scroll-link" data-id="go"><span></span>开启</a></center>
+            </section>
+          </div>
+        </div>
+      </div>
+    </header>
+    <section id="go">
+
+      <div class="container">
+        <div class="row">
+          <!-- <div class="col-md-12">
+            <h1>or make youre way</h1>
+            <p>Be Creative</p>
+          </div> -->
+          <%=yield%>
+        </div>
+      </div>
+
+    </section>
+
+    
+  </body>
+</html>
+<script>
+//设置向下滑动，出现navbar
+// hide .navbar first
+$(".navbar").hide();
+
+// fade in .navbar
+$(function () {
+    $(window).scroll(function () {
+
+             // set distance user needs to scroll before we start fadeIn
+        if ($(this).scrollTop() > 200) {
+            $('.navbar').fadeIn();
+        } else {
+            $('.navbar').fadeOut();
+        }
+    });
+});
+//设置背景图片的高度
+h=window.innerHeight
+||document.documentElement.clientHeight
+||document.body.clientHeight;
+document.getElementById("wel-header-id").style.height=h+"px";
+document.getElementById("go").style.height=h+"px";
+//设置点击 界面自动上滑
+$('.scroll-link').click(function(event){
+  event.preventDefault();
+  sectionID=$(this).attr("data-id");
+  scrollToID('#'+sectionID,1250);
+})
+// scroll function
+function scrollToID(id, speed){
+	 offSet = 0;
+	 targetOffset = $(id).offset().top - offSet;
+	 // mainNav = $('#main-nav');
+	$('html,body').animate({scrollTop:targetOffset}, speed);
+	// if (mainNav.hasClass("open")) {
+	// 	mainNav.css("height", "1px").removeClass("in").addClass("collapse");
+	// 	mainNav.removeClass("open");
+	// }
+}
+</script>

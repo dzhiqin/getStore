@@ -54,7 +54,7 @@ header p {
 #go{
   padding-top: 20px;
   background-image: image_url("header-180.jpg");
-  min-height: 700px;
+  min-height: 800px;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -207,6 +207,7 @@ header p {
 //flipper中的订阅专栏
 .gallery{
   padding: 10px;
+  text-align: center;
 //  border: 1px solid #eee;
 
 }
@@ -253,4 +254,33 @@ header p {
   width: 100%;
   opacity: 0.7;
   margin-top: 50px;
+}
+//商品index页面
+.gallery-product{
+  border: 1px solid #fff;
+  padding: 0;
+  background-color: white;
+  margin-top:20px;
+  margin-bottom: 10px;
+}
+.gallery-product a{
+  margin-bottom: 10px;
+}
+.product-select{
+  padding-top: 10px;
+
+}
+.product-select h4{
+  margin-top: 0;
+}
+.gallery-product:hover .product-select{
+  // transition: 0.2s;
+  //background-color: #ff9900;
+  box-shadow: inset 2px 2px 40px #ff9900;
+}
+//footer部分
+.footer-container{
+  margin-top:100px;
+  padding-top: 20px;
+  background-color: #f1f1f1;
 }

@@ -43,6 +43,7 @@ gem 'mini_magick'
 gem 'pry'
 gem 'letter_opener',group: :development
 gem 'aasm'
+gem 'ckeditor'
 group :production do
   gem 'pg'
 end

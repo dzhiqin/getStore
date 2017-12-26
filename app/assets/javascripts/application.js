@@ -17,6 +17,7 @@
 //= require bootstrap/carousel
 //= require bootstrap-sprockets
 //= require bootstrap/dropdown
+//= require ckeditor/init
 //= require_tree .
 $(document).ready(function(){
   new WOW().init();

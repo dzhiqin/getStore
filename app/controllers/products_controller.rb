@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!,only:[:like,:unlike]
   def index
     @products=Product.all
   end
@@ -15,5 +16,28 @@ class ProductsController < ApplicationController
       flash[:alert]="already added"
     end
     redirect_to :back
+  end
+  def like
+    @product=Product.find(params[:id])
+    if current_user.like?(@product)
+      flash[:notice]="已经收藏过商品"
+      redirect_to :back
+    else
+      current_user.like!(@product)
+      redirect_to :back
+      flash[:notice]="收藏成功"
+    end
+
+  end
+  def unlike
+    @product=Product.find(params[:id])
+    if !current_user.like?(@product)
+      flash[:notice]="还未收藏过商品"
+      redirect_to :back
+    else
+      current_user.unlike!(@product)
+      redirect_to :back
+      flash[:notice]="取消收藏"
+    end
   end
 end

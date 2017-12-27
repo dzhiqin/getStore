@@ -1,0 +1,20 @@
+<h1>我的收藏列表</h1>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>商品</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product|%>
+      <tr>
+        <td>
+          <%= link_to product_path(product) do %>
+            <%= product.title %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

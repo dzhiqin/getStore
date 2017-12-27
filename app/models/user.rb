@@ -7,4 +7,15 @@ class User < ApplicationRecord
     is_admin
   end
   has_many :orders
+  has_many :favorites
+  has_many :favorite_products, :through=> :favorites,:source=> :product
+  def like?(product)
+    self.favorite_products.include?(product)
+  end
+  def like!(product)
+    self.favorite_products << product
+  end
+  def unlike!(product)
+    self.favorite_products.delete(product)
+  end
 end

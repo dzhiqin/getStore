@@ -5,6 +5,16 @@
     <%else%>
       <%=image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail")%>
     <% end %>
+
+    <% if current_user.like?(@product)%>
+      <%= link_to unlike_product_path(@product),method: :post do %>
+        <i class="fa fa-heart fa-lg"></i>
+      <% end %>
+    <% else %>
+      <%= link_to like_product_path(@product),method: :post do %>
+        <i class="fa fa-heart-o fa-lg"></i>
+      <% end %>
+    <% end %>
   </div>
 
 </div>
@@ -17,6 +27,8 @@
     ¥ <%=@product.price%>
   </div>
   <div class="">
+
+
     <%if @product.quantity.present? && @product.quantity>0 %>
       <%=link_to('添加到购物车',add_to_cart_product_path(@product),:method=> :post,:class=>"btn btn-primary btn-lg btn-danger")%>
       <%=link_to('立即购买',add_to_cart_product_path(@product),:method=> :post,:class=>"btn btn-primary btn-lg btn-primary")%>

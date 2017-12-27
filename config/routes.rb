@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :products do
     member do
       post :add_to_cart
+      post :like
+      post :unlike
     end
   end
   namespace :admin do
@@ -34,5 +36,6 @@ Rails.application.routes.draw do
   end
   namespace :account do
     resources :orders
+    resources :favorites 
   end
 end

@@ -32,18 +32,36 @@
 </div>
 <div class="col-md-12 col-sm-12">
   <hr>
-
-
-  <%if @product.lesson_img.present?%>
-
-    <%@product.lesson_img.each do |image|%>
-      <div class="col-md-4  lesson-image">
-        <a href= <%= image.url %>  target="_blank"><img src= <%= image.url %> alt=""></a>
-
+  <div class="panel panel-primary with-nav-tabs">
+    <div class="panel-heading">
+      <ul class="nav nav-tabs nav-justified">
+        <li class="active list-border" ><a data-toggle="tab" href="#lesson-desc">课程介绍</a></li>
+        <li class="list-border"><a data-toggle="tab" href="#lesson-image">课程安排</a></li>
+        <li class="list-border"><a data-toggle="tab" href="#lesson-common">评论</a></li>
+      </ul>
+    </div>
+    <div class="panel-body">
+      <div class="tab-content" >
+        <div id="lesson-desc" class="tab-pane fade in active" >
+          <%= sanitize @product.description %>
+        </div>
+        <div id="lesson-image" class="tab-pane fade" >
+          <%if @product.lesson_img.present?%>
+            <%@product.lesson_img.each do |image|%>
+              <div class="col-md-4  lesson-image">
+                <a href= <%= image.url %>  target="_blank"><img src= <%= image.url %> alt=""></a>
+              </div>
+            <%end%>
+          <%end%>
+        </div>
+        <div id="lesson-common" class="tab-pane fade" >
+          pppppp
+          <h1>title</h1>
+        </div>
       </div>
-    <%end%>
+    </div>
+  </div>
 
 
-  <%end%>
 
 </div>

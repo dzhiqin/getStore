@@ -298,3 +298,30 @@ header p {
 .lesson-image img{
   width: 100%;
 }
+//用于显示产品说明，课程表，评论的页卡
+.with-nav-tabs.panel-primary .nav-tabs > li > a,
+.with-nav-tabs.panel-primary .nav-tabs > li > a:hover,
+.with-nav-tabs.panel-primary .nav-tabs > li > a:focus {
+    color: #fff;
+    border-bottom: none;
+    //border-bottom-color: transparent;
+}
+
+.with-nav-tabs.panel-primary .nav-tabs > li > a:hover,
+.with-nav-tabs.panel-primary .nav-tabs > li > a:focus {
+	color: #fff;
+	background-color: #3071a9;
+	//border-color: transparent;
+}
+
+.with-nav-tabs.panel-primary .nav-tabs > li.active > a,
+.with-nav-tabs.panel-primary .nav-tabs > li.active > a:hover,
+.with-nav-tabs.panel-primary .nav-tabs > li.active > a:focus {
+	color: #428bca;
+	background-color: #fff;
+	border-color: #428bca;
+	//border-bottom-color: transparent;
+}
+.with-nav-tabs .panel-heading{
+  padding-bottom: 0;
+}

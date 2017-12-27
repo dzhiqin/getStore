@@ -1,26 +1,49 @@
-<div class="col-md-6">
-  <%if @product.product_img.present?%>
-    <%=image_tag(@product.product_img.thumb.url,class:"thumbnail")%>
-  <%else%>
-    <%=image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail")%>
-  <% end %>
-</div>
-<div class="col-md-6">
-  <h2><%=@product.title%></h2>
-  <div class="" style="min-width:100px;">
-    <p><%=@product.description%></p>
+<div class="col-md-6 ">
+  <div class="col-md-8 col-md-offset-2">
+    <%if @product.product_img.present?%>
+      <%=image_tag(@product.product_img.medium.url,class:"thumbnail")%>
+    <%else%>
+      <%=image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail")%>
+    <% end %>
   </div>
+
+</div>
+<div class="col-md-6 show-right">
+  <h2><%=@product.title%></h2>
   <div class="">
     数量：<%=@product.quantity%>
   </div>
   <div class="product-price">
     ¥ <%=@product.price%>
   </div>
-  <div class="pull-right">
+  <div class="">
     <%if @product.quantity.present? && @product.quantity>0 %>
-      <%=link_to('add to cart',add_to_cart_product_path(@product),:method=> :post,:class=>"btn btn-primary btn-lg btn-danger")%>
+      <%=link_to('添加到购物车',add_to_cart_product_path(@product),:method=> :post,:class=>"btn btn-primary btn-lg btn-danger")%>
+      <%=link_to('立即购买',add_to_cart_product_path(@product),:method=> :post,:class=>"btn btn-primary btn-lg btn-primary")%>
     <%else%>
       <span>sold out</span>
     <%end%>
   </div>
+  <div class="" style="min-width:100px;">
+    <p><%= sanitize @product.description%></p>
+  </div>
+
+
+</div>
+<div class="col-md-12 col-sm-12">
+  <hr>
+
+
+  <%if @product.lesson_img.present?%>
+
+    <%@product.lesson_img.each do |image|%>
+      <div class="col-md-4  lesson-image">
+        <a href= <%= image.url %>  target="_blank"><img src= <%= image.url %> alt=""></a>
+
+      </div>
+    <%end%>
+
+
+  <%end%>
+
 </div>

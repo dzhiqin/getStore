@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!,only:[:new,:create]
+  before_action :authenticate_user!,only:[:destroy,:create,:vote,:unvote]
   def index
     @posts=Post.all
   end
@@ -32,6 +32,33 @@ class PostsController < ApplicationController
         flash[:alert]="删除失败"
         redirect_to :back
       end
+  end
+  def vote
+    @product=Product.find(params[:product_id])
+    @post=Post.find(params[:id])
+    if current_user.voted?(@post)
+      # redirect_to :back
+      flash[:alert]="已支持"
+    else
+      current_user.vote!(@post)
+      # redirect_to :back
+      flash[:notice]="支持"
+    end
+  end
+
+  def unvote
+    @product=Product.find(params[:product_id])
+    @post=Post.find(params[:id])
+    if current_user.voted?(@post)
+      current_user.unvote!(@post)
+      # redirect_to :back
+      render :vote
+      flash[:notice]="取消支持"
+    else
+      render :vote
+      # redirect_to :back
+      flash[:alert]="没有支持过"
+    end
   end
   private
   def post_params

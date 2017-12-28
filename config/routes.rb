@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "welcome#index"
   resources :products do
-    resources :posts
+    resources :posts do
+      member do
+        post :vote
+        post :unvote
+      end
+    end
     member do
       post :add_to_cart
       post :like

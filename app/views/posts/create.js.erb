@@ -1,0 +1,6 @@
+<%if @post.valid?%>
+  $('#lesson-post').prepend("<%=j render :partial=>'posts/post',:locals=>{:post=>@post}%>");
+  $('#post_content').val("");
+<%else%>
+  alert("发表内容不能为空");
+<%end%>

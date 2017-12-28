@@ -12,19 +12,21 @@ class PostsController < ApplicationController
     @post.user=current_user
     @post.product=@product
     if @post.save
-      redirect_to product_path(@product)
+      # redirect_to product_path(@product)
+
       flash[:notice]="发表成功"
     else
 
       flash[:alert]="发表失败"
-      redirect_to :back
+
     end
   end
   def destroy
     @product=Product.find(params[:product_id])
     @post=Post.find(params[:id])
       if @post.destroy
-        redirect_to :back
+        # redirect_to :back
+        # render :js=>"alert('ok')"
         flash[:notice]="删除成功"
       else
         flash[:alert]="删除失败"

@@ -6,7 +6,7 @@
     <%= post.content %>
     <% if current_user && current_user.id==post.user.id %>
      <p class="text-right">
-       <%=link_to "Delete",product_post_path(post.product,post),:method=>:delete,:remote=>true,:class=>"btn btn-danger"%>
+       <%=link_to "Delete",product_post_path(post.product,post),:method=>:delete,:remote=>true,:class=>"btn btn-danger btn-xs"%>
      </p>
    <% end %>
   </div>

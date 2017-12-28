@@ -69,12 +69,12 @@
         <div id="lesson-post" class="tab-pane fade" >
           <% if @product.posts.any?%>
             <% @product.posts.each do |post|%>
-              <%= render :partial=>"post",:locals=>{:post=>post} %>
+              <%= render :partial=>"posts/post",:locals=>{:post=>post} %>
             <%end %>
           <% else %>
             暂无评论!
           <% end %>
-          <%= simple_form_for [@product,@product.posts.build] do |f|%>
+          <%= simple_form_for [@product,@product.posts.build],:remote=>true do |f|%>
             <%= f.input :content ,:required=>true%>
             <%= f.submit "发表" %>
           <% end %>

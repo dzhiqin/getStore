@@ -5,4 +5,5 @@ class Product < ApplicationRecord
   serialize :lesson_img,JSON
   has_many :favorites
   has_many :favorited_users,:through=> :favorites,:source=> :users
+  has_many :posts
 end

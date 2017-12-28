@@ -3,10 +3,12 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "welcome#index"
   resources :products do
+    resources :posts
     member do
       post :add_to_cart
       post :like
       post :unlike
+      post :new_post
     end
   end
   namespace :admin do
@@ -36,6 +38,6 @@ Rails.application.routes.draw do
   end
   namespace :account do
     resources :orders
-    resources :favorites 
+    resources :favorites
   end
 end

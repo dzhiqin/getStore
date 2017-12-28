@@ -1,0 +1,13 @@
+<div id="post-<%=post.id%>" class="panel panel-default">
+  <div class="panel panel-heading">
+    <h4><i class="fa fa-user-circle-o"></i><%= post.user.email.split("@")[0] %>:</h4>
+  </div>
+  <div class=" panel-body">
+    <%= post.content %>
+    <% if current_user && current_user.id==post.user.id %>
+     <p class="text-right">
+       <%=link_to "Delete",product_post_path(post.product,post),:method=>:delete,:class=>"btn btn-danger"%>
+     </p>
+   <% end %>
+  </div>
+</div>

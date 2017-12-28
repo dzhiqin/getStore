@@ -49,7 +49,7 @@
       <ul class="nav nav-tabs nav-justified">
         <li class="active list-border" ><a data-toggle="tab" href="#lesson-desc">课程介绍</a></li>
         <li class="list-border"><a data-toggle="tab" href="#lesson-image">课程安排</a></li>
-        <li class="list-border"><a data-toggle="tab" href="#lesson-comment">咨询区</a></li>
+        <li class="list-border"><a data-toggle="tab" href="#lesson-post">咨询区</a></li>
       </ul>
     </div>
     <div class="panel-body">
@@ -66,25 +66,17 @@
             <%end%>
           <%end%>
         </div>
-        <div id="lesson-comment" class="tab-pane fade" >
+        <div id="lesson-post" class="tab-pane fade" >
           <% if @product.posts.any?%>
             <% @product.posts.each do |post|%>
-              <div class="media">
-
-                <div class="media-body">
-                  <h4><i class="fa fa-user-circle-o"></i><%= post.user.email.split("@")[0] %>:</h4>
-                  <p><%= post.content %></p>
-                </div>
-
-              </div>
-
+              <%= render :partial=>"post",:locals=>{:post=>post} %>
             <%end %>
           <% else %>
             暂无评论!
           <% end %>
           <%= simple_form_for [@product,@product.posts.build] do |f|%>
-            <%= f.input :content %>
-            <%= f.submit "发帖" %>
+            <%= f.input :content ,:required=>true%>
+            <%= f.submit "发表" %>
           <% end %>
 
         </div>

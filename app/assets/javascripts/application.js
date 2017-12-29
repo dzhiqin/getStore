@@ -18,6 +18,7 @@
 //= require bootstrap-sprockets
 //= require bootstrap/dropdown
 //= require ckeditor/init
+//= require autosize.min
 //= require_tree .
 $(document).ready(function(){
   new WOW().init();

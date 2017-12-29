@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
   def show
     @product=Product.find(params[:id])
     @posts=@product.posts.includes(:votes).order("votes_count DESC")
-    binding.pry
+
   end
   def add_to_cart
     @product=Product.find(params[:id])
@@ -18,6 +18,14 @@ class ProductsController < ApplicationController
       flash[:alert]="already added"
     end
     redirect_to :back
+  end
+  def cart_and_buy
+    @product=Product.find(params[:id])
+    if !current_cart.products.include?(@product)
+      current_cart.add_product_to_cart(@product)
+
+    end
+    redirect_to carts_path
   end
   def like
     @product=Product.find(params[:id])

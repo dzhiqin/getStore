@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     end
     member do
       post :add_to_cart
+      post :cart_and_buy
       post :like
       post :unlike
       post :new_post

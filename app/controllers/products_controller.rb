@@ -6,7 +6,8 @@ class ProductsController < ApplicationController
 
   def show
     @product=Product.find(params[:id])
-    @posts=@product.posts.includes(:votes)
+    @posts=@product.posts.includes(:votes).order("votes_count DESC")
+    binding.pry
   end
   def add_to_cart
     @product=Product.find(params[:id])

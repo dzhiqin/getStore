@@ -1,9 +1,9 @@
 <% if current_user.voted?(post)%>
   <%= link_to unvote_product_post_path(post.product,post),method: :post,:remote=>true,class:"btn btn-default btn-xs" do %>
-    <%= post.votes.count %> <i class="fa fa-thumbs-up"></i>
+    <%= post.votes.size %> <i class="fa fa-thumbs-up"></i>
   <%end%>
 <%else%>
   <%= link_to vote_product_post_path(post.product,post),method: :post,:remote=>true,class:"btn btn-default btn-xs" do %>
-   <%= post.votes.count %> <i class="fa fa-thumbs-o-up"></i>
+   <%= post.votes.size %> <i class="fa fa-thumbs-o-up"></i>
   <%end%>
 <%end%>

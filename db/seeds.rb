@@ -11,3 +11,11 @@ u.password="123456"
 u.password_confirmation="123456"
 u.is_admin=true
 u.save
+
+Category.create!(:name=>"文学")
+Category.create!(:name=>"经济")
+Category.create!(:name=>"社科")
+Category.create!(:name=>"家庭")
+Category.create!(:name=>"艺术")
+Category.create!(:name=>"心理")
+Category.create!(:name=>"商业")

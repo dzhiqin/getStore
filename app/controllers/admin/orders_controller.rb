@@ -3,7 +3,7 @@ class Admin::OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :require_admin
   def index
-    @orders=Order.order("id DESC")
+    @orders=Order.order("id DESC").page(params[:page]).per(20)
   end
   def show
     @order=Order.find(params[:id])

@@ -8,11 +8,11 @@
 
     <% if current_user.like?(@product)%>
       <%= link_to unlike_product_path(@product),method: :post do %>
-        <i class="fa fa-heart fa-lg"></i>
+        <span class="label label-danger"><i class="fa fa-heart fa-lg"></i></span>
       <% end %>
     <% else %>
       <%= link_to like_product_path(@product),method: :post do %>
-        <i class="fa fa-heart-o fa-lg"></i>
+        <span class="label label-default"><i class="fa fa-heart-o fa-lg"></i></span>
       <% end %>
     <% end %>
     <span class="label label-success"> <%= @product.category.name %></span>

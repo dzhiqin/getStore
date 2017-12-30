@@ -33,4 +33,10 @@ class Admin::OrdersController < ApplicationController
     @order.return_good!
     redirect_to :back
   end
+  def destroy
+    @order=Order.find(params[:id])
+    @order.destroy
+    flash[:alert]="已删除"
+    redirect_to admin_orders_path
+  end
 end

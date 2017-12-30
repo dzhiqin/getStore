@@ -6,6 +6,7 @@
       <th>生成时间</th>
       <th>订购人</th>
       <th>订单状态</th>
+      <th>操作</th>
     </tr>
   </thead>
   <tbody>
@@ -15,6 +16,11 @@
         <td><%= order.created_at.to_s(:long) %></td>
         <td><%= order.user.email %></td>
         <td><%= order.aasm_state %></td>
+        <td>
+          <%= link_to admin_order_path(order),method: :delete do %>
+            删除
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

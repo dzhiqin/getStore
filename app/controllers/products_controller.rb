@@ -1,8 +1,24 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!,only:[:like,:unlike]
   def index
-    @products=Product.all
+    if params[:select_id].present?
+      @value_id=params[:select_id]
+      @products=Product.where(:category_id=>params[:select_id])
+    else
+      @products=Product.all
+    end
+    @order_state=params[:order_state]
+    @products = case params[:order_state]
+    when '价格从低到高'
+      @products.order('price ASC')
+
+    when '价格从高到低'
+      @products.order('price DESC')
+    else
+      @products
+    end
   end
+
 
   def show
     @product=Product.find(params[:id])
@@ -51,6 +67,14 @@ class ProductsController < ApplicationController
     end
   end
 
+  def update
+    @product=Product.find(params[:id])
+    @product.update(product_params)
+    binding.pry
+    render :json=>{:id=>@product.id,:message=>"ok"}
+  end
   private
-
+  def product_params
+    params.require(:post).permit(:content,:category_id,:select_id)
+  end
 end

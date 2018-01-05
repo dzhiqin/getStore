@@ -12,6 +12,7 @@ u.password_confirmation="123456"
 u.is_admin=true
 u.save
 
+
 Category.create!(:name=>"文学")
 Category.create!(:name=>"经济")
 Category.create!(:name=>"社科")

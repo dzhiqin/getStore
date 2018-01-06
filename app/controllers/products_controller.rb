@@ -29,9 +29,9 @@ class ProductsController < ApplicationController
     @product=Product.find(params[:id])
     if !current_cart.products.include?(@product)
       current_cart.add_product_to_cart(@product)
-      flash[:notice]="add to cart success"
+      flash[:notice]="成功添加到购物车！"
     else
-      flash[:alert]="already added"
+      flash[:alert]="已经添加到购物车！"
     end
     redirect_to :back
   end

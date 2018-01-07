@@ -9,22 +9,15 @@
 # production:
 #   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
+
 production:
-   qiniu_access_key: iDMZ1ndGSH9_DFemEjmGLmo-jKSJzXqeKQOEkjSv  # 你的 qiniu AccessKey
+  qiniu_access_key: iDMZ1ndGSH9_DFemEjmGLmo-jKSJzXqeKQOEkjSv
+  qiniu_secret_key: jTypK5yuc3P2sL-g-02BoWEzQscBsR_8LqlPgkrz
+  qiniu_bucket: goodjob
+  qiniu_bucket_domain: p11nkypcn.bkt.clouddn.com
 
-   qiniu_secret_key: jTypK5yuc3P2sL-g-02BoWEzQscBsR_8LqlPgkrz  # 你的 qiniu SecretKey
-
-   qiniu_bucket: goodjob  # 你的 qiniu bucket
-
-   qiniu_bucket_domain: p11nkypcn.bkt.clouddn.com  # 你的 qiniu bucket domain
-
-
-
- development:
-   qiniu_access_key: iDMZ1ndGSH9_DFemEjmGLmo-jKSJzXqeKQOEkjSv  # 你的 qiniu AccessKey
-
-   qiniu_secret_key: jTypK5yuc3P2sL-g-02BoWEzQscBsR_8LqlPgkrz  # 你的 qiniu SecretKey
-
-   qiniu_bucket: goodjob  # 你的 qiniu bucket
-
-   qiniu_bucket_domain: p11nkypcn.bkt.clouddn.com  # 你的 qiniu bucket domain
+development:
+  qiniu_access_key: iDMZ1ndGSH9_DFemEjmGLmo-jKSJzXqeKQOEkjSv
+  qiniu_secret_key: jTypK5yuc3P2sL-g-02BoWEzQscBsR_8LqlPgkrz
+  qiniu_bucket: goodjob
+  qiniu_bucket_domain: p11nkypcn.bkt.clouddn.com  

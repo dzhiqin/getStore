@@ -45,6 +45,9 @@ gem 'letter_opener',group: :development
 gem 'aasm'
 gem 'ckeditor'
 gem 'kaminari'
+gem 'carrierwave-qiniu','~> 1.1.5'
+gem 'qiniu-rs'
+gem 'figaro'
 group :production do
   gem 'pg'
 end

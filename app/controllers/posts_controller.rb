@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!,only:[:destroy,:create,:vote,:unvote]
+  layout "mylayout"
   def index
     @posts=Post.all
   end

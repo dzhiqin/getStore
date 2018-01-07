@@ -48,6 +48,7 @@ gem 'kaminari'
 gem 'carrierwave-qiniu','~> 1.1.5'
 gem 'qiniu-rs'
 gem 'figaro'
+gem 'devise-i18n'
 group :production do
   gem 'pg'
 end

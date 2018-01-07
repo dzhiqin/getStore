@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!,only:[:like,:unlike]
+  layout "mylayout"
   def index
     if params[:select_id].present?
       @value_id=params[:select_id]

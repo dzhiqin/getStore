@@ -325,3 +325,22 @@ header p {
 .with-nav-tabs .panel-heading{
   padding-bottom: 0;
 }
+//devise部分
+.devise-container {
+  min-height: 700px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: image_url("header-test.jpg");
+}
+.devise-content{
+  margin-top: 15%;
+  border: 1px solid white;
+  color: white;
+}
+.devise-content a{
+  color: white;
+}
+.devise-content p{
+  color: white;
+}

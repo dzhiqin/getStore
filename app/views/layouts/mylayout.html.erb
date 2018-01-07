@@ -11,17 +11,20 @@
   </head>
 
   <body class="web-body">
-    <div class="container-fluid devise-container" id="devise-container">
+    <div class="container-fluid">
       <div class="row" >
         <%= render "common/navbar"%>
 
           <%= render "common/flashes" %>
-          <div class="col-md-4 col-md-offset-4 devise-content">
-            <%=yield%>
+          <div class="container" >
+            <div class="row" style="background-color:#cfe2f3;">
+              <div class="" style="margin-top:60px">
+                <%=yield%>
+              </div>
+
+            </div>
           </div>
-
-
-          <!-- <%=render "common/footer"%> -->
+          <%=render "common/footer"%>
 
 
       </div>
@@ -29,10 +32,3 @@
     </div>
   </body>
 </html>
-<script type="text/javascript">
-//设置背景图片的高度
-h=window.innerHeight
-||document.documentElement.clientHeight
-||document.body.clientHeight;
-document.getElementById("devise-container").style.height=h+"px";
-</script>

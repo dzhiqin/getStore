@@ -1,19 +1,21 @@
 <%=simple_form_for [:admin,@product] do |f|%>
   <div class="group">
-    <%=f.input :title%>
+    <%=f.input :title,label:"名称"%>
   </div>
   <div class="form-group">
+    <%= f.label :brif_desc, "讲师介绍" %>
     <%= f.cktext_area :brif_desc, ckeditor: { toolbar:'mini', language: 'zh-CN'} %>
   </div>
 
 
   <div class="group">
-    <%=f.input :quantity%>
+    <%=f.input :quantity,label:"课程数量"%>
   </div>
   <div class="group">
-    <%=f.input :price%>
+    <%=f.input :price,label:"价格"%>
   </div>
   <div class="form-group">
+    <%= f.label :description,"课程介绍" %>
     <%= f.cktext_area :description, ckeditor: { toolbar:'mini', language: 'zh-CN'} %>
   </div>
   <div class="form-group">
@@ -24,12 +26,12 @@
     <%=image_tag(@product.product_img.thumb.url)%>
   <%end%>
   <div class="group">
-    <%=f.input :product_img,as: :file %>
+    <%=f.input :product_img,label:"产品图",as: :file %>
   </div>
 
 
   <div class="form-group">
-    <%= f.label :lesson_img %>
+    <%= f.label :lesson_img ,"课程表"%>
     <%= f.file_field :lesson_img,:multiple=>true,:class=>"form-control" %>
     <% if f.object.lesson_img.present? %>
     <label>
@@ -40,5 +42,5 @@
     <% end %>
   <% end %>
   </div>
-  <%=f.submit "确定",data:{disable_with:"Submitting..."}%>
+  <%=f.submit "确定",data:{disable_with:"Submitting..."},class:"btn btn-primary"%>
 <% end %>

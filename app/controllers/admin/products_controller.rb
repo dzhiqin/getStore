@@ -18,8 +18,10 @@ class Admin::ProductsController < ApplicationController
     @product=Product.new(product_params)
     if @product.save
       redirect_to admin_products_path
+      flash[:notice]="success"
     else
       render :new
+      flash[:alert]="failed"
     end
   end
   def update

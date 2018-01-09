@@ -27,7 +27,10 @@
         </td>
         <td><%=product.title%></td>
         <td><%=product.price%></td>
-        <td><%=link_to('Edit',edit_admin_product_path(product),class:"btn btn-danger btn-sm")%></td>
+        <td>
+          <%=link_to('Edit',edit_admin_product_path(product),class:"btn btn-primary btn-sm")%>
+          <%= link_to('Delete',admin_product_path(product),method: :delete,data:{confirm:"Are you sure?"},class:"btn btn-danger btn-sm") %>
+        </td>
       </tr>
     <%end%>
   </tbody>

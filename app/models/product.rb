@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  validates_presence_of :title,:quantity,:price
   mount_uploader :product_img, ProductImgUploader
   has_many :cart_items
   mount_uploaders :lesson_img,LessonImageUploader

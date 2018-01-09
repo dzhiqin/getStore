@@ -8,5 +8,6 @@ class Product < ApplicationRecord
   has_many :favorited_users,:through=> :favorites,:source=> :users
   has_many :posts
   belongs_to :category
+  mount_uploaders :pgimg ,PgimgUploader
   # STATUS=["全部","文学","经济","社科","家庭","艺术","心理","商业"]
 end

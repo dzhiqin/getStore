@@ -61,13 +61,24 @@
           <%= sanitize product.description %>
         </div>
         <div id="lesson-image" class="tab-pane fade" >
-          <%if product.lesson_img.present?%>
-            <%product.lesson_img.each do |image|%>
-              <div class="col-md-4  lesson-image">
-                <a href= <%= image.url %>  target="_blank"><img src= <%= image.url %> alt=""></a>
-              </div>
+          <% if Rails.env.development? %>
+            <%if product.lesson_img.present?%>
+              <%product.lesson_img.each do |image|%>
+                <div class="col-md-4  lesson-image">
+                  <a href= <%= image.url %>  target="_blank"><img src= <%= image.url %> alt=""></a>
+                </div>
+              <%end%>
             <%end%>
-          <%end%>
+          <% else %>
+            <%if product.pgimg.present?%>
+              <%product.pgimg.each do |image|%>
+                <div class="col-md-4  lesson-image">
+                  <a href= <%= image.url %>  target="_blank"><img src= <%= image.url %> alt=""></a>
+                </div>
+              <%end%>
+            <%end%>
+          <% end %>
+
         </div>
         <div id="lesson-post" class="tab-pane fade" >
           <% if product.posts.any?%>

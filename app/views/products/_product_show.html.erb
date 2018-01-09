@@ -1,0 +1,97 @@
+<div class="col-md-6">
+  <div class="col-md-6">
+    <%if product.product_img.present?%>
+      <%=image_tag(product.product_img.medium.url,class:"thumbnail")%>
+    <%else%>
+      <%=image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail")%>
+    <% end %>
+    <% if current_user %>
+      <% if current_user.like?(product)%>
+        <%= link_to unlike_product_path(product),method: :post do %>
+          <span class="label label-danger"><i class="fa fa-heart fa-lg"></i></span>
+        <% end %>
+      <% else %>
+        <%= link_to like_product_path(product),method: :post do %>
+          <span class="label label-default"><i class="fa fa-heart-o fa-lg"></i></span>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <span class="label label-success"> <%= product.category.name %></span>
+  </div>
+
+</div>
+<div class="col-md-6 show-right">
+  <h2><%=product.title%></h2>
+  <div class="quantity-font">
+    数量：<%=product.quantity%>
+  </div>
+  <div class="price-font">
+    ¥ <%=product.price%>
+  </div>
+  <div class="">
+
+
+    <%if product.quantity.present? && product.quantity>0 %>
+      <%=link_to('添加到购物车',add_to_cart_product_path(product),:method=> :post,:class=>"btn btn-primary btn-lg btn-danger")%>
+      <%=link_to('立即购买',cart_and_buy_product_path(product),:method=> :post,:class=>"btn btn-primary btn-lg btn-primary")%>
+    <%else%>
+      <span>sold out</span>
+    <%end%>
+  </div>
+  <div class="desc-font" style="min-width:100px;">
+    <p><%= sanitize product.brif_desc%></p>
+  </div>
+
+
+</div>
+<div class="col-md-12 col-sm-12">
+  <hr>
+  <div class="panel panel-primary with-nav-tabs">
+    <div class="panel-heading">
+      <ul class="nav nav-tabs nav-justified">
+        <li class="active list-border" ><a data-toggle="tab" href="#lesson-desc">课程介绍</a></li>
+        <li class="list-border"><a data-toggle="tab" href="#lesson-image">课程安排</a></li>
+        <li class="list-border"><a data-toggle="tab" href="#lesson-post">讨论区</a></li>
+      </ul>
+    </div>
+    <div class="panel-body">
+      <div class="tab-content" >
+        <div id="lesson-desc" class="tab-pane fade in active" >
+          <%= sanitize product.description %>
+        </div>
+        <div id="lesson-image" class="tab-pane fade" >
+          <%if product.lesson_img.present?%>
+            <%product.lesson_img.each do |image|%>
+              <div class="col-md-4  lesson-image">
+                <a href= <%= image.url %>  target="_blank"><img src= <%= image.url %> alt=""></a>
+              </div>
+            <%end%>
+          <%end%>
+        </div>
+        <div id="lesson-post" class="tab-pane fade" >
+          <% if product.posts.any?%>
+            <% product.posts.each do |post|%>
+              <%= render :partial=>"posts/post",:locals=>{:post=>post} %>
+            <%end %>
+          <% else %>
+            暂无评论!
+          <% end %>
+          <%= simple_form_for [product,product.posts.build],:remote=>true do |f|%>
+            <div class="form-group">
+              <%= f.text_area :content ,:class=>"form-control",:required=>true%>
+            </div>
+            <div class="form-group">
+              <%= f.submit "发表" %>
+            </div>
+
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  autosize($('#post_content'))
+</script>

@@ -40,7 +40,7 @@ class Admin::ProductsController < ApplicationController
   end
   protected
   def product_params
-    params.require(:product).permit(:title,:description,:price,:quantity,:product_img,:lesson_img,:pgimg,:brif_desc,:category_id,:remove_lesson_img,{:lesson_img=>[]},{:pgimg=> []})
+    params.require(:product).permit(:title,:description,:price,:quantity,:product_img,:lesson_img,:pgimg,:brif_desc,:category_id,:remove_lesson_img,:remove_pgimg,{:lesson_img=>[]},{:pgimg=> []})
   end
 
 end

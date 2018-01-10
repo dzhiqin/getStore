@@ -68,7 +68,15 @@
       </div>
       <div class="back" >
         <div id="special-column">
-          <div class="col-md-3 col-sm-3 gallery">
+          <% @products.each do |product|%>
+            <div class="col-md-3 col-sm-3 gallery">
+              <%= link_to product_path(product) do %>
+                <img src= <%= product.product_img.url %> alt="">
+                <p class="text-title"> <%= product.title %></p>
+              <%end%>
+            </div>
+          <% end %>
+          <!-- <div class="col-md-3 col-sm-3 gallery">
             <a href="#">
               <img src="images/徐来.jpg" alt="">
               <p class="text-title">给孩子的博物学</p>
@@ -91,9 +99,12 @@
               <img src="images/魏.jpg" alt="">
               <p class="text-title">Dr.魏家庭教育宝典</p>
             </a>
-          </div>
+          </div> -->
         </div>
-        <%= link_to("查看更多商品",products_path,id:"btn-detail") %>
+        <div class="col-md-12">
+            <%= link_to("查看更多商品",products_path,id:"btn-detail") %>
+        </div>
+
       </div>
     </div>
   </div>

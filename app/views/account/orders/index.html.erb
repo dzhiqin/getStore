@@ -5,6 +5,7 @@
       <th>#</th>
       <th>生成时间</th>
       <th>订单状态</th>
+      <th>操作</th>
     </tr>
   </thead>
   <tbody>
@@ -13,6 +14,7 @@
         <td><%= link_to(order.id,order_path(order.token)) %></td>
         <td><%= order.created_at.to_s(:long) %></td>
         <td><%= order.aasm_state %></td>
+        <td><%= link_to('删除',account_order_path(order.token),method: :delete) %></td>
       </tr>
     <% end %>
   </tbody>

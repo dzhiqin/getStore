@@ -10,4 +10,7 @@ class Product < ApplicationRecord
   belongs_to :category
   mount_uploaders :pgimg ,PgimgUploader
   # STATUS=["全部","文学","经济","社科","家庭","艺术","心理","商业"]
+  def is_empty?
+    self.quantity > 0
+  end
 end

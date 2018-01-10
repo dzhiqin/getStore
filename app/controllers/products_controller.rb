@@ -28,11 +28,16 @@ class ProductsController < ApplicationController
   end
   def add_to_cart
     @product=Product.find(params[:id])
-    if !current_cart.products.include?(@product)
-      current_cart.add_product_to_cart(@product)
-      flash[:notice]="成功添加到购物车！"
+    if @product.is_empty?
+      if !current_cart.products.include?(@product)
+        current_cart.add_product_to_cart(@product)
+        # @product.update(:quantity=>@product.quantity-1)
+        flash[:notice]="成功添加到购物车！"
+      else
+        flash[:alert]="已经添加到购物车！"
+      end
     else
-      flash[:alert]="已经添加到购物车！"
+      flash[:alert]="库存不足!"
     end
     redirect_to :back
   end

@@ -17,16 +17,16 @@
             <%if current_user %>
               <% if current_user.like?(product)%>
                 <%= link_to unlike_product_path(product),method: :post,class:"btn btn-primary" do %>
-                  <img src="/images/like-r.png" alt="" style="width:20px;">已收藏
+                  <img src="/images/like-r.png" alt="" style="width:20px;"> 已收藏
                 <% end %>
               <% else %>
                 <%= link_to like_product_path(product),method: :post,class:"btn btn-primary" do %>
-                  <img src="images/like-o.png" alt="" style="width:20px;">收藏
+                  <img src="images/like-o.png" alt="" style="width:20px;"> 收藏
                 <% end %>
               <% end %>
             <%else%>
               <%= link_to like_product_path(product),method: :post,class:"btn btn-primary" do %>
-                <img src="images/like-o.png" alt="" style="width:20px;">收藏
+                <img src="images/like-o.png" alt="" style="width:20px;"> 收藏
               <% end %>
             <%end%>
 
@@ -37,7 +37,7 @@
           </div>
           <div class="col-md-6">
             <%= link_to add_to_cart_product_path(product),method: :post,class:"btn btn-success btn-product" do %>
-              <span class="glyphicon glyphicon-shopping-cart"></span> Buy
+              <span class="glyphicon glyphicon-shopping-cart"></span> 购物车
             <% end %>
           </div>
         </div>

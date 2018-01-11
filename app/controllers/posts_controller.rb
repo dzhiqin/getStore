@@ -43,7 +43,7 @@ class PostsController < ApplicationController
     else
       current_user.vote!(@post)
       # redirect_to :back
-      flash[:notice]="支持"
+      # flash[:notice]="支持"
     end
   end
 
@@ -52,12 +52,10 @@ class PostsController < ApplicationController
     @post=Post.find(params[:id])
     if current_user.voted?(@post)
       current_user.unvote!(@post)
-      # redirect_to :back
       render :vote
-      flash[:notice]="取消支持"
+      # flash[:notice]="取消支持"
     else
-      render :vote
-      # redirect_to :back
+      redirect_to :back
       flash[:alert]="没有支持过"
     end
   end

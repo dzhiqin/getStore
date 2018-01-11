@@ -10,17 +10,17 @@ Rails.application.configure do
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
 
-  # config.action_mailer.default_url_options={:host=>"https://getstore1.herokuapp.com/"}
-  # config.action_mailer.delivery_method=:smtp
-  # ActionMailer::Base.smtp_settings={
-  #   address:"smtpcloud.sohu.com",
-  #   port: 25,
-  #   domain:"heroku.com",
-  #   authentication: "login",
-  #   enable_starttls_auto: true,
-  #   user_name: ENV["SEND_CLOUD_USER_NAME"],
-  #   password: END["SEND_CLOUD_USER_KEY"]
-  # }
+  config.action_mailer.default_url_options={:host=>"https://getstore1.herokuapp.com/"}
+  config.action_mailer.delivery_method=:smtp
+  ActionMailer::Base.smtp_settings={
+    address:"smtpcloud.sohu.com",
+    port: 25,
+    domain:"heroku.com",
+    authentication: "login",
+    enable_starttls_auto: true,
+    user_name: ENV["SEND_CLOUD_USER_NAME"],
+    password: ENV["SEND_CLOUD_USER_KEY"]
+  }
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true

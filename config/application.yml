@@ -15,9 +15,13 @@ production:
   qiniu_secret_key: jTypK5yuc3P2sL-g-02BoWEzQscBsR_8LqlPgkrz
   qiniu_bucket: goodjob
   qiniu_bucket_domain: p11nkypcn.bkt.clouddn.com
+  SEND_CLOUD_USER_NAME: dongzhiqin_test_SHjH7U
+  SEND_CLOUD_USER_KEY: K5hTHs1cMnZgcXQ3
 
 development:
   qiniu_access_key: iDMZ1ndGSH9_DFemEjmGLmo-jKSJzXqeKQOEkjSv
   qiniu_secret_key: jTypK5yuc3P2sL-g-02BoWEzQscBsR_8LqlPgkrz
   qiniu_bucket: goodjob
-  qiniu_bucket_domain: p11nkypcn.bkt.clouddn.com  
+  qiniu_bucket_domain: p11nkypcn.bkt.clouddn.com
+  SEND_CLOUD_USER_NAME: dongzhiqin_test_SHjH7U
+  SEND_CLOUD_USER_KEY: K5hTHs1cMnZgcXQ3

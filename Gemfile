@@ -50,6 +50,7 @@ gem 'qiniu-rs'
 gem 'figaro'
 gem 'devise-i18n'
 gem 'rails-i18n'
+gem 'select2-rails'
 group :production do
   gem 'pg'
 end

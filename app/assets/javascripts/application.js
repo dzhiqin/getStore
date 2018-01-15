@@ -19,6 +19,7 @@
 //= require bootstrap/dropdown
 //= require ckeditor/init
 //= require autosize.min
+//= require select2
 //= require_tree .
 $(document).ready(function(){
   new WOW().init();
